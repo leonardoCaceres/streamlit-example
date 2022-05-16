@@ -79,116 +79,52 @@ style.use('fivethirtyeight')
 Lula_Dilma_Temer_Bolsonaro = ahem.copy()[
 (ahem['Periodo:'].dt.year >= 2004) & (ahem['Periodo:'].dt.year < 2022)]
 
-Lula = Lula_Dilma_Temer_Bolsonaro.copy()[
-Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2011]
+lulaBox = st.checkbox('Lula')
+if lulaBox:
+    Lula = Lula_Dilma_Temer_Bolsonaro.copy()[
+    Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2011]
 
-Dilma = Lula_Dilma_Temer_Bolsonaro.copy()[
-(Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2010) &
- (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2017)]
+dilmaBox = st.checkbox('Dilma')
+if dilmaBox:
+    Dilma = Lula_Dilma_Temer_Bolsonaro.copy()[
+    (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2010) &
+     (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2017)]
 
-Temer = Lula_Dilma_Temer_Bolsonaro.copy()[
-(Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2016) &
- (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2019)]
+temerBox = st.checkbox('Temer')
+if temerBox:
+    Temer = Lula_Dilma_Temer_Bolsonaro.copy()[
+    (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2016) &
+     (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2019)]
 
-Bolsonaro = Lula_Dilma_Temer_Bolsonaro.copy()[
-(Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2018) &
- (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2022)]
+bolsonaroBox = st.checkbox('Bolsonaro')
+if bolsonaroBox:
+    Bolsonaro = Lula_Dilma_Temer_Bolsonaro.copy()[
+    (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2018) &
+     (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2022)]
 
 ### Adding the FiveThirtyEight style
 style.use('fivethirtyeight')
 
 plt.figure(figsize=(16, 7))
 
-plt.plot(Lula['Periodo:'], Lula.rolling_mean,
-         label="Lula", color='#000000')
-plt.plot(Dilma['Periodo:'], Dilma.rolling_mean,
-         label="Dilma", color='#8B0000')
-plt.plot(Temer['Periodo:'], Temer.rolling_mean,
-         label="Temer", color='#0000CD')
-plt.plot(Bolsonaro['Periodo:'], Bolsonaro.rolling_mean,
-         label="Bolsonaro", color='#008000')
+if lulaBox:
+    plt.plot(Lula['Periodo:'], Lula.rolling_mean,
+             label="Lula", color='#000000')
+
+if dilmaBox:
+    plt.plot(Dilma['Periodo:'], Dilma.rolling_mean,
+             label="Dilma", color='#8B0000')
+
+if temerBox:
+    plt.plot(Temer['Periodo:'], Temer.rolling_mean,
+             label="Temer", color='#0000CD')
+
+if bolsonaroBox:
+    plt.plot(Bolsonaro['Periodo:'], Bolsonaro.rolling_mean,
+             label="Bolsonaro", color='#008000')
 
 plt.title(
 'Taxa de analfabetismo em pessoas com mais de 15 anos no Brasil entre os anos de 2004 e 2019')
-plt.legend()
-plt.show()
-st.pyplot(plt)
-
-ahem['rolling_mean'] = ahem['Homens'].rolling(1).mean()
-#ahem
-
-style.use('fivethirtyeight')
-
-Lula_Dilma_Temer_Bolsonaro = ahem.copy()[
-(ahem['Periodo:'].dt.year >= 2004) & (ahem['Periodo:'].dt.year < 2022)]
-
-Lula = Lula_Dilma_Temer_Bolsonaro.copy()[
-Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2011]
-
-Dilma = Lula_Dilma_Temer_Bolsonaro.copy()[
-(Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2010) &
- (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2017)]
-
-Temer = Lula_Dilma_Temer_Bolsonaro.copy()[
-(Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2016) &
- (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2019)]
-
-Bolsonaro = Lula_Dilma_Temer_Bolsonaro.copy()[
-(Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2018) &
- (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2022)]
-
-plt.figure(figsize=(16, 7))
-
-plt.plot(Lula['Periodo:'], Lula.rolling_mean,
-         label="Lula", color='#000000')
-plt.plot(Dilma['Periodo:'], Dilma.rolling_mean,
-         label="Dilma", color='#8B0000')
-plt.plot(Temer['Periodo:'], Temer.rolling_mean,
-         label="Temer", color='#0000CD')
-plt.plot(Bolsonaro['Periodo:'], Bolsonaro.rolling_mean,
-         label="Bolsonaro", color='#008000')
-
-plt.title(
-'Taxa de analfabetismo em homens com mais de 15 anos no Brasil entre os anos de 2004 e 2019')
-plt.legend()
-plt.show()
-st.pyplot(plt)
-
-ahem['rolling_mean'] = ahem['Mulheres'].rolling(1).mean()
-#ahem
-### Adding the FiveThirtyEight style
-style.use('fivethirtyeight')
-
-Lula_Dilma_Temer_Bolsonaro = ahem.copy()[
-(ahem['Periodo:'].dt.year >= 2004) & (ahem['Periodo:'].dt.year < 2022)]
-
-Lula = Lula_Dilma_Temer_Bolsonaro.copy()[
-Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2011]
-
-Dilma = Lula_Dilma_Temer_Bolsonaro.copy()[
-(Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2010) &
- (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2017)]
-
-Temer = Lula_Dilma_Temer_Bolsonaro.copy()[(Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2016) &
- (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2019)]
-
-Bolsonaro = Lula_Dilma_Temer_Bolsonaro.copy()[
-(Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year >= 2018) &
- (Lula_Dilma_Temer_Bolsonaro['Periodo:'].dt.year < 2022)]
-
-plt.figure(figsize=(16, 7))
-
-plt.plot(Lula['Periodo:'], Lula.rolling_mean,
-         label="Lula", color='#000000')
-plt.plot(Dilma['Periodo:'], Dilma.rolling_mean,
-         label="Dilma", color='#8B0000')
-plt.plot(Temer['Periodo:'], Temer.rolling_mean,
-         label="Temer", color='#0000CD')
-plt.plot(Bolsonaro['Periodo:'], Bolsonaro.rolling_mean,
-         label="Bolsonaro", color='#008000')
-
-plt.title(
-'Taxa de analfabetismo em mulheres com mais de 15 anos no Brasil entre os anos de 2004 e 2019')
 plt.legend()
 plt.show()
 st.pyplot(plt)
