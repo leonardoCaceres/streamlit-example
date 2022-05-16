@@ -17,4 +17,4 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 exchange_rates = pd.read_csv('entrada.csv')
 ahem = exchange_rates[['Periodo:', 'Total', 'Homens', 'Mulheres']].copy()
-st.line_chart(ahem['Total'], ahem['Homens'], ahem['Mulheres'])
+st.line_chart([ahem['Total'], ahem['Homens'], ahem['Mulheres']])
