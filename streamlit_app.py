@@ -21,7 +21,8 @@ with st.echo(code_location='below'):
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
     Point = namedtuple('Point', 'x y')
-    data = ["Periodo:", 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
+    #data = ["Periodo:", 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
+    data = []
 
     points_per_turn = total_points / num_turns
 
