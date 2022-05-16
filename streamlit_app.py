@@ -112,6 +112,7 @@ plt.title(
 'Taxa de analfabetismo em pessoas com mais de 15 anos no Brasil entre os anos de 2004 e 2019')
 plt.legend()
 plt.show()
+st.pyplot(plt)
 
 ahem['rolling_mean'] = ahem['Homens'].rolling(1).mean()
 #ahem
@@ -151,6 +152,7 @@ plt.title(
 'Taxa de analfabetismo em homens com mais de 15 anos no Brasil entre os anos de 2004 e 2019')
 plt.legend()
 plt.show()
+st.pyplot(plt)
 
 ahem['rolling_mean'] = ahem['Mulheres'].rolling(1).mean()
 #ahem
