@@ -189,3 +189,4 @@ plt.title(
 'Taxa de analfabetismo em mulheres com mais de 15 anos no Brasil entre os anos de 2004 e 2019')
 plt.legend()
 plt.show()
+st.pyplot(plt)
