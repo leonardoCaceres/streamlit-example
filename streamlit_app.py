@@ -16,4 +16,5 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 
 exchange_rates = pd.read_csv('entrada.csv')
-exchange_rates
+#exchange_rates
+st.line_chart(exchange_rates)
