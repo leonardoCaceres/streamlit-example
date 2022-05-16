@@ -4,9 +4,9 @@ import math
 import pandas as pd
 import streamlit as st
 
-exchange_rates = pd.read_csv('entradaSemString.csv')
+#exchange_rates = pd.read_csv('entradaSemString.csv')
 #ahem = exchange_rates[['Periodo:', 'Total', 'Homens', 'Mulheres']].copy()
-st.line_chart(exchange_rates)
+#st.line_chart(exchange_rates)
 
 """Mission529.py arquivo modificado para se adequar a taxa de analfabetsimo
  do brasil entre os anos de 2004 e 2019"""
